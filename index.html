@@ -1,67 +1,217 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Nguyễn Thanh Ngân | Học viên cao học Thú y</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Thanh Ngân | Veterinary Academic Profile</title>
+
+  <style>
+:root {
+  --primary: #1e3a5f;
+  --secondary: #2c5f8a;
+  --accent: #ffcc70;
+  --bg-light: #f4f7fb;
+  --text-dark: #2d2d2d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+header {
+  position: relative;
+  min-height: 65vh;
+  background: url('header-pets.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(30,58,95,0.85), rgba(30,58,95,0.55));
+}
+.header-content {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 35px;
+  align-items: center;
+  color: #fff;
+  animation: fadeDown 1.2s ease;
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+  background: #fff;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.header-text h1 { margin: 0; font-size: 3rem; }
+.header-text p { margin-top: 12px; font-size: 1.25rem; }
+main { max-width: 1100px; margin: -90px auto 0; padding: 20px; }
+section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 36px;
+  margin-bottom: 40px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,204,112,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+section:hover::after { opacity: 1; }
+section.show { opacity: 1; transform: translateY(0); }
+section h2 {
+  margin-top: 0;
+  font-size: 1.7rem;
+  color: var(--primary);
+  border-left: 6px solid var(--accent);
+  padding-left: 14px;
+}
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+footer { background: var(--primary); color: #fff; text-align: center; padding: 28px 15px; font-size: 0.9rem; }
+.pet-stickers { position: fixed; bottom: 18px; right: 18px; display: flex; gap: 12px; z-index: 999; }
+.pet-stickers img {
+  width: 55px; height: 55px; cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25));
+}
+.pet-stickers img:hover {
+  transform: scale(1.15) rotate(6deg);
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,0.35));
+}
+@media (max-width: 768px) {
+  .header-content { grid-template-columns: 1fr; text-align: center; }
+  .avatar { margin: auto; }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>Nguyễn Thanh Ngân</h1>
-  <p class="subtitle">Học viên cao học ngành Thú y</p>
+  <div class="header-content">
+    <img src="avatar.jpg" alt="Avatar Nguyễn Thanh Ngân" class="avatar" />
+    <div class="header-text">
+      <h1>Nguyễn Thanh Ngân</h1>
+      <p>Học viên cao học – Ngành Thú y</p>
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>Giới thiệu</h2>
-  <p>
-    Tôi hiện là học viên cao học ngành Thú y, quan tâm đến lĩnh vực sức khỏe động vật,
-    bệnh ký sinh trùng.
-    Định hướng nghiên cứu của tôi tập trung vào ứng dụng các phương pháp khoa học
-    nhằm nâng cao hiệu quả chẩn đoán và phòng bệnh trong thú y.
-  </p>
-</section>
+<main>
 
-<section>
-  <h2>Hướng nghiên cứu</h2>
-  <ul>
-    <li>Ký sinh trùng thú y</li>
+  <section>
+    <h2>Giới thiệu</h2>
+    <p>
+      Tôi hiện là học viên cao học ngành Thú y, quan tâm đến lĩnh vực sức khỏe động vật và
+      bệnh ký sinh trùng. Định hướng nghiên cứu của tôi tập trung vào ứng dụng các phương pháp
+      khoa học nhằm nâng cao hiệu quả chẩn đoán và phòng bệnh trong thú y.
+    </p>
+  </section>
+
+  <section class="grid-2">
+    <div>
+      <h2>Thông tin liên hệ</h2>
+      <p><strong>📍 Địa chỉ:</strong> Xuân Khánh, Ninh Kiều, Cần Thơ</p>
+      <p><strong>📞 Điện thoại:</strong> (+84) 372 010 461</p>
+      <p><strong>✉️ Email:</strong> nganm0325008@gstudent.ctu.edu.vn</p>
+    </div>
+    <div>
+      <h2>Ngôn ngữ</h2>
+      <ul>
+        <li>Tiếng Việt: Bản ngữ</li>
+        <li>Tiếng Anh: Trung cấp</li>
       </ul>
-</section>
+    </div>
+  </section>
 
-<section>
-  <h2>Trình độ học vấn</h2>
-  <ul>
-    <li><strong> Học viên cao họcThú y</strong> – Trường Đại học Cần Thơ (05/2025 – nay)</li>
-    <li><strong>Bác sĩ Thú y</strong> – Trường Đại học Cần Thơ (2020 – 2025)</li>
-  </ul>
-</section>
+  <section>
+    <h2>Hướng nghiên cứu 🔬</h2>
+    <ul>
+      <li>🧬 Ký sinh trùng trên động vật (gia súc, gia cầm và thú cưng)</li>
+      <li>🔍 Đặc điểm hình thái và sinh học của ký sinh trùng thú y</li>
+      <li>🧪 Ứng dụng các phương pháp xét nghiệm và chẩn đoán trong ký sinh trùng thú y</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Nghiên cứu & đề tài</h2>
-  <ul>
-    <li>Khảo sát tính kháng cầu trùng thỏ của tinh dầu lá quế và tinh dầu tía tô trong điều kiện in vitro</li>
-    <li>Khảo sát tình hình nhiễm ve và đặc tính phân tử của các loài ve thường gặp ký sinh trên chó tại thành phố Cần Thơ</li>
-  </ul>
-</section>
+  <section>
+    <h2>Kỹ năng chuyên môn</h2>
+    <ul>
+      <li>Lấy mẫu thực địa, soi kính hiển vi, định danh ký sinh trùng</li>
+      <li>Xử lý mẫu và thực hành phòng thí nghiệm</li>
+      <li>Microsoft Office, GraphPad Prism, công cụ tin sinh học cơ bản</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Kỹ năng chuyên môn</h2>
-  <ul>
-    <li>Thu thập và xử lý mẫu bệnh phẩm</li>
-    <li>Soi kính hiển vi và định danh ký sinh trùng</li>
-    <li>Hỗ trợ thực hiện các xét nghiệm chẩn đoán ký sinh trùng</li>
-    <li>Ghi nhận và phân tích dữ liệu</li>
-  </ul>
-</section>
+  <section>
+    <h2>Học vấn</h2>
+    <p><strong>Bác sĩ Thú y – Tốt nghiệp loại Giỏi</strong> (2020–2025)</p>
+    <p>Trường Đại học Cần Thơ – GPA: 3.2 / 4.0</p>
+    <p><strong>Khóa luận:</strong> Đánh giá in vitro hoạt tính kháng cầu trùng của tinh dầu lá quế và tinh dầu tía tô đối với cầu trùng thỏ</p>
+  </section>
+
+  <section>
+    <h2>Kinh nghiệm chuyên môn</h2>
+    <p><strong>Thực tập sinh – Phòng thí nghiệm Ký sinh trùng Thú y</strong> (08/2022 – Nay)</p>
+    <ul>
+      <li>Hỗ trợ chẩn đoán ký sinh trùng</li>
+      <li>Thực hiện quy trình xét nghiệm và xử lý mẫu</li>
+      <li>Hỗ trợ ghi nhận và phân tích dữ liệu</li>
+    </ul>
+  </section>
+
+</main>
 
 <footer>
-  <p>
-    Email: nganm0325008@gstudent.ctu.edu.vn<br>
-    GitHub: github.com/yourusername
-  </p>
+  © 2025 Nguyễn Thanh Ngân | Veterinary Academic Personal Website
 </footer>
+
+<div class="pet-stickers">
+  <img src="sticker-dog.png" alt="Dog sticker" />
+  <img src="sticker-cat.png" alt="Cat sticker" />
+  <img src="sticker-paw.png" alt="Paw sticker" />
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
 
 </body>
 </html>
